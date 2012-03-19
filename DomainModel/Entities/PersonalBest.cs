@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DomainModel.Domain
+namespace DomainModel.Entities
 {
     public class PersonalBest
     {
         public virtual int Id { get; set; }
         public virtual string PersonName { get; set; }
         public virtual string EventName { get; set; }
-        public virtual long TimeTicks { get; set; }
+        public virtual int TimeTicks { get; set; }
         public virtual TimeSpan Time
         {
             get { return new TimeSpan(TimeTicks); }

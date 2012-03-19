@@ -7,7 +7,7 @@ namespace DataAccessLayer
 {
     public class NHibernateDataProvider
     {
-        public DomainModel.Domain.PersonalBest GetPersonalBestById(int personalBestId)
+        public DomainModel.Entities.PersonalBest GetPersonalBestById(int personalBestId)
         {
             NHibernate.Cfg.Configuration config = new NHibernate.Cfg.Configuration();
 
@@ -17,7 +17,7 @@ namespace DataAccessLayer
 
             NHibernate.ISession session = sessionFactory.OpenSession();
 
-            return session.Get<DomainModel.Domain.PersonalBest>(personalBestId);
+            return session.Get<DomainModel.Entities.PersonalBest>(personalBestId);
         }
     }
 }

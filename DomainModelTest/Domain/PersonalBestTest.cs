@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DomainModel.Domain;
+using DomainModel.Entities;
 using NUnit.Framework;
 
 namespace DomainModelTest.Domain
@@ -23,7 +23,7 @@ namespace DomainModelTest.Domain
             var personalBest = new PersonalBest()
             {
                 EventName = "200m Freestyle",
-                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
+                TimeTicks = unchecked((int)new TimeSpan(0, 0, 1, 47, 20).Ticks)
             };
             Assert.AreEqual("Incomplete record", personalBest.ToString());
         }
@@ -34,7 +34,7 @@ namespace DomainModelTest.Domain
             var personalBest = new PersonalBest()
             {
                 PersonName = "Jim Saunders",
-                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
+                TimeTicks = unchecked((int)new TimeSpan(0, 0, 1, 47, 20).Ticks)
             };
             Assert.AreEqual("Incomplete record", personalBest.ToString());
         }
@@ -57,7 +57,7 @@ namespace DomainModelTest.Domain
             {
                 PersonName = "Henry Lawson",
                 EventName = "200m Freestyle",
-                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
+                TimeTicks = unchecked((int)new TimeSpan(0, 0, 1, 47, 20).Ticks)
             };
             Assert.AreEqual("Henry Lawson - 200m Freestyle: 00:01:47.0200000", personalBest.ToString());
         }

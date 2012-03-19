@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DataAccessLayer;
-using DomainModel.Domain;
+using DomainModel.Entities;
 using NUnit.Framework;
 
 namespace DataAccessLayerTest
@@ -18,6 +18,7 @@ namespace DataAccessLayerTest
             PersonalBest personalBest = nHibernateDataProvider.GetPersonalBestById(1);
             Assert.AreEqual("Henry", personalBest.PersonName);
             Assert.AreEqual("200m Free", personalBest.EventName);
+            Assert.AreEqual(new TimeSpan(100), personalBest.TimeTicks);
         }
     }
 }
