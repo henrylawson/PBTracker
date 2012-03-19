@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DomainModel;
+using DomainModel.Domain;
 using NUnit.Framework;
 
-namespace DomainModelTest
+namespace DomainModelTest.Domain
 {
     [TestFixture]
     public class PersonalBestTest
