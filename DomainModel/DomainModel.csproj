@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\SharedApplicationLibraries\fluentnhibernate-NH3.1-1.2\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\SharedApplicationLibraries\fluentnhibernate-NH3.1-1.2\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\SharedApplicationLibraries\fluentnhibernate-NH3.1-1.2\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\SharedApplicationLibraries\nHibernate-3.2.0\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -47,12 +56,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\PersonalBest.cs" />
+    <Compile Include="Mappings\PersonalBestMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\PersonalBest.hbm.xml" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
