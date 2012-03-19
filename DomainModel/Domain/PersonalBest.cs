@@ -13,14 +13,14 @@ namespace DomainModel.Domain
 
         public new string ToString()
         {
-            return AreAllPropertiesNotSet() ? "Incomplete record" : String.Format("{0} - {1}: {2}", PersonName, EventName, Time);
+            return AreAllPropertiesSet() ? String.Format("{0} - {1}: {2}", PersonName, EventName, Time) : "Incomplete record";
         }
 
-        private bool AreAllPropertiesNotSet()
+        private bool AreAllPropertiesSet()
         {
-            return String.IsNullOrEmpty(EventName) ||
-                   String.IsNullOrEmpty(PersonName) ||
-                   IsTimeAtZero();
+            return !String.IsNullOrEmpty(EventName) &&
+                   !String.IsNullOrEmpty(PersonName) &&
+                   !IsTimeAtZero();
         }
 
         private bool IsTimeAtZero()
