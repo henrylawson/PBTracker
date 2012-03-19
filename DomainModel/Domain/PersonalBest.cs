@@ -7,29 +7,25 @@ namespace DomainModel.Domain
 {
     public class PersonalBest
     {
-        private string _eventName;
-
-        public string EventName
-        {
-            get { return String.IsNullOrEmpty(_eventName) ? "Unknown" : _eventName; }
-            set { _eventName = value; }
-        }
-
+        public string PersonName { get; set; }
+        public string EventName { get; set; }
         public TimeSpan Time { get; set; }
-
-        public PersonalBest()
-        {
-        }
-
-        public PersonalBest(string eventName, TimeSpan time)
-        {
-            EventName = eventName;
-            Time = time;
-        }
 
         public new string ToString()
         {
-            return String.Format("{0}: {1}", EventName, Time.ToString());
+            return AreAllPropertiesNotSet() ? "Incomplete record" : String.Format("{0} - {1}: {2}", PersonName, EventName, Time);
+        }
+
+        private bool AreAllPropertiesNotSet()
+        {
+            return String.IsNullOrEmpty(EventName) ||
+                   String.IsNullOrEmpty(PersonName) ||
+                   IsTimeAtZero();
+        }
+
+        private bool IsTimeAtZero()
+        {
+            return Time.ToString().Equals("00:00:00");
         }
     }
 }

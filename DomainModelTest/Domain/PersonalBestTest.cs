@@ -11,17 +11,55 @@ namespace DomainModelTest.Domain
     public class PersonalBestTest
     {
         [Test]
-        public void ShouldHaveDefaultToStringWithNoEventNameAndTime()
+        public void ShouldHaveIncompleteToStringWithNoProperties()
         {
             var personalBest = new PersonalBest();
-            Assert.AreEqual("Unknown: 00:00:00", personalBest.ToString());
+            Assert.AreEqual("Incomplete record", personalBest.ToString());
+        }
+
+        [Test]
+        public void ShouldHaveIncompleteToStringWithNoPersonName()
+        {
+            var personalBest = new PersonalBest()
+            {
+                EventName = "200m Freestyle",
+                Time = new TimeSpan(0, 0, 1, 47, 20)
+            };
+            Assert.AreEqual("Incomplete record", personalBest.ToString());
+        }
+
+        [Test]
+        public void ShouldHaveIncompleteToStringWithNoEventName()
+        {
+            var personalBest = new PersonalBest()
+            {
+                PersonName = "Jim Saunders",
+                Time = new TimeSpan(0, 0, 1, 47, 20)
+            };
+            Assert.AreEqual("Incomplete record", personalBest.ToString());
+        }
+
+        [Test]
+        public void ShouldHaveIncompleteToStringWithNoTime()
+        {
+            var personalBest = new PersonalBest()
+            {
+                PersonName = "Jim Saunders",
+                EventName = "200m Sprint"
+            };
+            Assert.AreEqual("Incomplete record", personalBest.ToString());
         }
 
         [Test]
         public void ShouldHaveEventNameAndTimeInToString()
         {
-            var personalBest = new PersonalBest("200m Freestyle", new TimeSpan(0, 0, 1, 47, 20));
-            Assert.AreEqual("200m Freestyle: 00:01:47.0200000", personalBest.ToString());
+            var personalBest = new PersonalBest()
+                                   {
+                                       PersonName = "Henry Lawson",
+                                       EventName = "200m Freestyle",
+                                       Time = new TimeSpan(0, 0, 1, 47, 20)
+                                   };
+            Assert.AreEqual("Henry Lawson - 200m Freestyle: 00:01:47.0200000", personalBest.ToString());
         }
     }
 }
