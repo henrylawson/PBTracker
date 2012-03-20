@@ -7,11 +7,16 @@ namespace DomainModel.Domain
 {
     public class PersonalBest
     {
-        public string PersonName { get; set; }
-        public string EventName { get; set; }
-        public TimeSpan Time { get; set; }
+        public virtual int Id { get; set; }
+        public virtual string PersonName { get; set; }
+        public virtual string EventName { get; set; }
+        public virtual long TimeTicks { get; set; }
+        public virtual TimeSpan Time
+        {
+            get { return new TimeSpan(TimeTicks); }
+        }
 
-        public new string ToString()
+        public virtual new string ToString()
         {
             return AreAllPropertiesSet() ? String.Format("{0} - {1}: {2}", PersonName, EventName, Time) : "Incomplete record";
         }

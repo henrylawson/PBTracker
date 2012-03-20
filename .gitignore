@@ -4,4 +4,8 @@ DomainModelTest/bin
 DomainModelTest/obj
 DomainModel/bin
 DomainModel/obj
+DataAccessLayer/bin
+DataAccessLayer/obj
+DataAccessLayerTest/bin
+DataAccessLayerTest/obj
 _ReSharper.PBTracker

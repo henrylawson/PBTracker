@@ -23,7 +23,7 @@ namespace DomainModelTest.Domain
             var personalBest = new PersonalBest()
             {
                 EventName = "200m Freestyle",
-                Time = new TimeSpan(0, 0, 1, 47, 20)
+                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
             };
             Assert.AreEqual("Incomplete record", personalBest.ToString());
         }
@@ -34,7 +34,7 @@ namespace DomainModelTest.Domain
             var personalBest = new PersonalBest()
             {
                 PersonName = "Jim Saunders",
-                Time = new TimeSpan(0, 0, 1, 47, 20)
+                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
             };
             Assert.AreEqual("Incomplete record", personalBest.ToString());
         }
@@ -54,11 +54,11 @@ namespace DomainModelTest.Domain
         public void ShouldHaveEventNameAndTimeInToString()
         {
             var personalBest = new PersonalBest()
-                                   {
-                                       PersonName = "Henry Lawson",
-                                       EventName = "200m Freestyle",
-                                       Time = new TimeSpan(0, 0, 1, 47, 20)
-                                   };
+            {
+                PersonName = "Henry Lawson",
+                EventName = "200m Freestyle",
+                TimeTicks = new TimeSpan(0, 0, 1, 47, 20).Ticks
+            };
             Assert.AreEqual("Henry Lawson - 200m Freestyle: 00:01:47.0200000", personalBest.ToString());
         }
     }
