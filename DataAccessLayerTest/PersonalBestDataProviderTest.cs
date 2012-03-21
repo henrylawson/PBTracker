@@ -50,5 +50,13 @@ namespace DataAccessLayerTest
             Assert.AreEqual(personalBestDbRecord.EventName, personalBest.EventName);
             Assert.AreEqual(personalBestDbRecord.Time, personalBest.Time);
         }
+
+        [Test]
+        public void ShouldBeAbleToDeletePersonalBestById()
+        {
+            var personalBestDbRecord = PersonalBestFixture.CreatePersonalBestDbRecord();
+            _personalBestDataProvider.DeletePersonalBestById(personalBestDbRecord.Id);
+            Assert.IsNull(_personalBestDataProvider.GetPersonalBestById(personalBestDbRecord.Id));
+        }
     }
 }

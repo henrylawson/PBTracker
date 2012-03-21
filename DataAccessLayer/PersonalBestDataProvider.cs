@@ -30,5 +30,14 @@ namespace DataAccessLayer
         {
             ClearAllRecordsForEntity(typeof(PersonalBest));
         }
+
+        public void DeletePersonalBestById(int personalBestId)
+        {
+            using (ISession session = CreateSessionFactory().OpenSession())
+            {
+                session.Delete(GetPersonalBestById(personalBestId));
+                session.Flush();
+            }
+        }
     }
 }
