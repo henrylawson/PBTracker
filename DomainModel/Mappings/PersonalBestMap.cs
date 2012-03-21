@@ -15,6 +15,7 @@ namespace DomainModel.Mappings
             Map(x => x.PersonName);
             Map(x => x.EventName);
             Map(x => x.TimeTicks);
+            Map(x => x.RecordedOn);
         }
     }
 }

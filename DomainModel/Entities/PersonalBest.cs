@@ -11,6 +11,8 @@ namespace DomainModel.Entities
         public virtual string PersonName { get; set; }
         public virtual string EventName { get; set; }
         public virtual int TimeTicks { get; set; }
+        public virtual DateTime RecordedOn { get; set; }
+
         public virtual TimeSpan Time
         {
             get { return new TimeSpan(TimeTicks); }

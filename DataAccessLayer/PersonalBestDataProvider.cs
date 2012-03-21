@@ -10,14 +10,15 @@ namespace DataAccessLayer
     public class PersonalBestDataProvider : DataProvider
     {
 
-        public PersonalBest GetPersonalBestById(int personalBestId)
+        public PersonalBest GetById(int personalBestId)
         {
-            ISessionFactory sessionFactory = CreateSessionFactory();
-            ISession session = sessionFactory.OpenSession();
-            return session.Get<PersonalBest>(personalBestId);
+            using (ISession session = CreateSessionFactory().OpenSession())
+            {
+                return session.Get<PersonalBest>(personalBestId);
+            }
         }
 
-        public void SaveOrUpdatePersonalBest(PersonalBest personalBest)
+        public void SaveOrUpdate(PersonalBest personalBest)
         {
             using (ISession session = CreateSessionFactory().OpenSession())
             {
@@ -31,11 +32,11 @@ namespace DataAccessLayer
             ClearAllRecordsForEntity(typeof(PersonalBest));
         }
 
-        public void DeletePersonalBestById(int personalBestId)
+        public void DeleteById(int personalBestId)
         {
             using (ISession session = CreateSessionFactory().OpenSession())
             {
-                session.Delete(GetPersonalBestById(personalBestId));
+                session.Delete(GetById(personalBestId));
                 session.Flush();
             }
         }

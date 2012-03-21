@@ -29,14 +29,9 @@ namespace DataAccessLayerTest
         [Test]
         public void ShouldBeAbleToSavePersonalBest()
         {
-            var personalBest = new PersonalBest()
-            {
-                EventName = "200m Free",
-                PersonName = "Henry",
-                TimeTicks = 100
-            };
+            var personalBest = PersonalBestFixture.CreatePersonalBest();
             Assert.AreEqual(0, personalBest.Id);
-            _personalBestDataProvider.SaveOrUpdatePersonalBest(personalBest);
+            _personalBestDataProvider.SaveOrUpdate(personalBest);
             Assert.AreNotEqual(0, personalBest.Id);
         }
 
@@ -44,7 +39,7 @@ namespace DataAccessLayerTest
         public void ShouldBeAbleToGetPersonalBestById()
         {
             var personalBestDbRecord = PersonalBestFixture.CreatePersonalBestDbRecord();
-            var personalBest = _personalBestDataProvider.GetPersonalBestById(personalBestDbRecord.Id);
+            var personalBest = _personalBestDataProvider.GetById(personalBestDbRecord.Id);
             Assert.NotNull(personalBest);
             Assert.AreEqual(personalBestDbRecord.PersonName, personalBest.PersonName);
             Assert.AreEqual(personalBestDbRecord.EventName, personalBest.EventName);
@@ -55,8 +50,9 @@ namespace DataAccessLayerTest
         public void ShouldBeAbleToDeletePersonalBestById()
         {
             var personalBestDbRecord = PersonalBestFixture.CreatePersonalBestDbRecord();
-            _personalBestDataProvider.DeletePersonalBestById(personalBestDbRecord.Id);
-            Assert.IsNull(_personalBestDataProvider.GetPersonalBestById(personalBestDbRecord.Id));
+            Console.WriteLine(personalBestDbRecord.Id);
+            _personalBestDataProvider.DeleteById(personalBestDbRecord.Id);
+            Assert.IsNull(_personalBestDataProvider.GetById(personalBestDbRecord.Id));
         }
     }
 }
