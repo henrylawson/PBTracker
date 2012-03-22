@@ -84,9 +84,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\PersonalBestTest.cs" />
-    <Compile Include="Domain\Presenter\PersonalBestStringPresenterTest.cs" />
-    <Compile Include="Domain\Presenter\PersonalBestXmlPresenterTest.cs" />
+    <Compile Include="Entities\PersonalBestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +99,10 @@
     <ProjectReference Include="..\DomainModel\DomainModel.csproj">
       <Project>{36E87B0D-7D2D-4773-80FA-6B93800402E0}</Project>
       <Name>DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainPresentation\DomainPresentation.csproj">
+      <Project>{490DD239-E993-4FFF-B507-4DD4C89C6593}</Project>
+      <Name>DomainPresentation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

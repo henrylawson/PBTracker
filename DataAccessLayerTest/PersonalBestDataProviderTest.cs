@@ -5,7 +5,6 @@ using System.Text;
 using DataAccessLayer;
 using DataAccessLayerTest.Fixtures;
 using DomainModel.Entities;
-using DomainModel.Entities.Presenter;
 using NUnit.Framework;
 using StructureMap;
 

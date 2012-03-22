@@ -71,9 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\PersonalBest.cs" />
-    <Compile Include="Entities\Presenter\IPersonalBestPresenter.cs" />
-    <Compile Include="Entities\Presenter\PersonalBestStringPresenter.cs" />
-    <Compile Include="Entities\Presenter\PersonalBestXmlPresenter.cs" />
     <Compile Include="Mappings\PersonalBestMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
