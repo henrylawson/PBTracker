@@ -66,6 +66,15 @@
     <Reference Include="Remotion.Data.Linq">
       <HintPath>..\SharedApplicationLibraries\fluentnhibernate-NH3.1-1.2\Remotion.Data.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\SharedApplicationLibraries\structuremap-2.6.1\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\SharedApplicationLibraries\structuremap-2.6.1\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap.AutoMocking">
+      <HintPath>..\SharedApplicationLibraries\structuremap-2.6.1\StructureMap.AutoMocking.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -76,9 +85,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\PersonalBestTest.cs" />
+    <Compile Include="Domain\Presenter\PersonalBestStringPresenterTest.cs" />
+    <Compile Include="Domain\Presenter\PersonalBestXmlPresenterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayerTest\DataAccessLayerTest.csproj">
+      <Project>{2C12E6ED-7ACF-4BFF-9309-97B0D72FA4EF}</Project>
+      <Name>DataAccessLayerTest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
       <Project>{4E159201-7539-483B-8262-DB6567F0D73B}</Project>
       <Name>DataAccessLayer</Name>

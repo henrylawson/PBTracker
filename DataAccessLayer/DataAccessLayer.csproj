@@ -54,6 +54,7 @@
     <Reference Include="Remotion.Data.Linq">
       <HintPath>..\SharedApplicationLibraries\fluentnhibernate-NH3.1-1.2\Remotion.Data.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=2.6.1.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />

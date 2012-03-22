@@ -5,7 +5,9 @@ using System.Text;
 using DataAccessLayer;
 using DataAccessLayerTest.Fixtures;
 using DomainModel.Entities;
+using DomainModel.Entities.Presenter;
 using NUnit.Framework;
+using StructureMap;
 
 namespace DataAccessLayerTest
 {
@@ -15,15 +17,10 @@ namespace DataAccessLayerTest
         private PersonalBestDataProvider _personalBestDataProvider;
 
         [SetUp]
-        public void ClearAllDatabaseRecords()
-        {
-            _personalBestDataProvider.ClearAllRecords();
-        }
-
-        [SetUp]
-        public void SetUpDataProvider()
+        public void ClearDbRecordsAndSetUpProviderAndPresenter()
         {
             _personalBestDataProvider = new PersonalBestDataProvider();
+            _personalBestDataProvider.ClearAllRecords();
         }
 
         [Test]
